@@ -13,9 +13,19 @@ gtag('config', 'G-CGPXSTF0RS');
 async function handleLinks() {
   const res = await fetch("links.json").then(r => r.json());
   const mainDiv = document.getElementById("links-list");
-
-`
-`
+  for (const [key, value] of Object.entries(res)) {
+    $(mainDiv).append(
+      
+      <a href="${value}" target="_blank" rel="noopener noreferrer">
+        <div class="link-list-item">
+          <p>${key}</p>
+          <i class="ri-external-link-line"></i>
+        </div>
+      </a> <!-- Link End -->
+    .trim()
+    );
+  };
+}
 
 $(document).ready(function() {
   handleLinks();
